@@ -1,0 +1,137 @@
+body {
+    background: #f1f1f2;
+    box-shadow: inset 0 0 10em 2em #bcbcc1;
+    display: block;
+    margin: 0;
+    height: 100vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #404041;
+    pointer-events: none;    }
+
+
+h1,
+svg {
+    position: absolute;
+    width: 250px;
+    top: 40%;
+    left: 50%;    }
+
+
+h1 {
+    margin: 50px 0 0 -125px;
+    height: 287.5px;
+    font-family: sans-serif;
+    font-size: 30px;
+    letter-spacing: 6px;
+    line-height: 287.5px;
+    text-align: center;
+    z-index: 100;    }
+
+
+svg {
+    margin: -143.75px 0 0 -125px;    }
+
+/* This is a comment that the computer ignores
+when it sees slash asterisk it stops interpreting
+so I can write human stuff here
+
+
+http://www.w3schools.com/html/html_intro.asp
+http://www.w3schools.com/css/css_syntax.asp
+
+if you look in your HTML code you'll see nested tags with properties
+denoted by property="propertyblahblah". you put tags inside each other by
+noting where they begin
+
+<b>
+  <i>
+    and where they end
+  </i>
+</b>
+
+I just nested some words inside an italics tag inside a bold tag
+it's like boxes inside boxes.
+below is another line of HTML
+
+<svg> <g id = "shape"> YOUR GEOMETRY CODE HERE </g> </shape>
+
+^this is a g tag inside an svg tag. notice the </ means close tag.
+
+in this case the <g> tag has a property that says its ID is "shape"
+that allows other code outside the HTML to access that <g> tag specifically, using a hashtag.
+This is useful in ways you'll discover.
+ID and class are ways to label HTML tags so you can target them with styling rules
+like appear and disappear
+
+so in CSS to access that specific g tag you would use #shape
+# means find a thing by ID, . means find by class
+
+
+below is a line from the old CSS code
+
+svg #shape polygon {
+
+that line from the old CSS code was searching specifically for a
+tag polygon inside any tag with property id="shape" inside a tag named svg
+
+Below is what the HTML could look like sort of
+
+<svg>
+	<g id = "shape">
+		<polygon blah blah>
+		<polygon blah blah>
+		<polygon imagine 3 more of these>
+	</g>
+</shape>
+
+see? boxes inside boxes
+shape encompasses g which encompasses all your polygons
+
+The problem is if you paste in something that doesn't say polygon,
+the CSS won't find it because it's specifically looking for
+
+polygon in #shape in svg
+
+what we want to look for is 
+
+ANYTHING in #shape in svg
+
+
+The thing I changed was the css selectors
+
+svg #shape polygon {
+and
+svg #shape polygon.active {
+
+I replaced polygon with an asterisk *
+
+because * is a wildcard, it will refer to any tag, including other shapes
+like circle, rectangle, path
+
+so now you can paste in any type of SVG shape code you want and the CSS will find it
+and change the way it looks.
+
+Congratulations on being adventurous enough to find your way here
+you are going to be rich
+
+
+the following symbols will tell the computer to start interpreting
+words as CSS again.
+*/
+
+svg #shape * {
+    fill: #404041;
+    opacity: 0;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;    }
+
+
+svg #shape *.active {
+    opacity: 1;    }
+
+
+svg > polygon {
+    fill: #d7d7d9;    }
